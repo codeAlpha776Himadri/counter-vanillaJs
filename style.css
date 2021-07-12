@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bree Serif', serif;
+}
+
+.screen-bg
+{
+    position: absolute;
+    /* height: 100vh;
+    width: 100vw; */
+    top: 0;
+    left: 0;
+    z-index: 7;
+    background-color: white;
+}
+
+.screen-bg-animation
+{
+    animation: anim 800ms ease-out 300ms 1 backwards;
+}
+@keyframes anim
+{
+    from
+    {
+        height: 100vh;
+        width: 100vw;
+    }
+    to
+    {
+        transform: skew(180deg) rotateY(360deg);
+    }
+}
+
+.screen
+{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    background-color: rgb(0, 0, 0);
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -5;
+}
+
+.container-come
+{
+    animation: open 1500ms ease-in-out 500ms 1 forwards;
+}
+@keyframes open{
+    from{
+        height: 0vh;
+        width: 100vw;
+        opacity: 0;
+    }
+    to{
+        height: 100vh;
+        width: 100vw;
+        opacity: 1;
+    }
+}
+
+.container-go
+{
+    animation: go 500ms ease-in-out 500ms 1 forwards;
+}
+@keyframes go{
+    from{
+        height: 100vh;
+        width: 100vw;
+        visibility: visible;
+    }
+    to{
+        height: 100vh;
+        width: 0vw;
+        visibility: none;
+    }
+}
+
+.container .clock {
+    height: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 6px hsl(180deg 100% 27%); /*will be animated*/ 
+    animation: rotate 5s ease-in-out 0s infinite forwards;
+    color: blanchedalmond;
+    text-shadow: -3px 3px 0 rgba(0, 0, 0, 0.637), 1px 1px 0 rgb(255, 255, 255), 3px -3px 0 rgba(0, 0, 0, 0.637), -1px -1px 0 rgb(247, 247, 247);
+}
+
+@keyframes rotate
+{
+    0%{
+        box-shadow: 4px 4px 6px hsl(180deg 100% 27%);
+    }
+    25%{
+        box-shadow: -4px 4px 6px hsl(180deg 100% 27%);
+    }
+    50%{
+        box-shadow: -4px -4px 6px hsl(180deg 100% 27%);
+    }
+    75%{
+        box-shadow: 4px -4px 6px hsl(180deg 100% 27%);   
+    }
+    100%{
+        box-shadow: 4px 4px 6px hsl(180deg 100% 27%);
+    }
+}
+
+.container #btn {
+    height: 40px;
+    width: 121px;
+    background-color: hsl(180deg 100% 27%);
+    color: rgb(0, 0, 0);
+    font-size: large;
+    border: none;
+    /* box-shadow: 2px 2px 2px white; */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.main
+{
+    height: 100vh;
+    width: 100vw;position: absolute;
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border-bottom: 2px solid  hsl(180deg 100% 27%);
+}
+
+.main-visibility-close
+{
+    
+    animation: animation1 300ms ease-in-out 1 forwards;
+}
+@keyframes animation1
+{
+    from
+    {
+        opacity: 1;
+        height: 100vh;
+    }
+    to
+    {
+        /* opacity: 0; */
+        /* z-index: -1; */
+        height: 0vh;
+    }
+}
+
+.main-visibility-open
+{
+    
+    animation: animation2 500ms ease-in-out 1 forwards;
+}
+@keyframes animation2 
+{
+    from
+    {
+        opacity: 0;
+        height: 0vh;
+    }
+    to
+    {
+        opacity: 1;
+        /* z-index: -1; */
+        height: 100vh;
+    }
+}
+
+.btn-close , .btn-open
+{
+    display: block;
+    position: absolute;
+    top: 16px;
+    height: 40px;
+    width: 121px;
+    outline: none;
+    background-color: hsl(180deg 100% 27%);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-close
+{
+    z-index: 10;
+}
+
+.btn-close-back
+{
+    z-index: -10;
+}
+
+.btn-open-back
+{
+    z-index: -100;
+}
+
+.footer
+{
+   color: hsl(180deg 100% 27%); 
+}
+
+.display_text
+{
+    color: hsl(180deg 100% 27%);
+    font-size: 30px;
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.637), 1px 1px 0 rgb(255, 255, 255), 1px -1px 0 rgba(0, 0, 0, 0.637), -1px -1px 0 rgb(247, 247, 247);
+}
+
+.footer-vanish
+{
+    display: none;
+}
+
+.display-text-vanish
+{
+    display: none;
+}
